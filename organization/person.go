@@ -8,13 +8,13 @@ type Identifiable interface {
 
 type Person struct {
 	firstName string
-	lastName string
+	lastName  string
 }
 
 func NewPerson(firstName, lastName string) Person {
-	return Person {
+	return Person{
 		firstName: firstName,
-		lastName: lastName,
+		lastName:  lastName,
 	}
 }
 
