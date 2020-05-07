@@ -3,6 +3,7 @@ package main
 import "github.com/tevity/go-custom-data-types/organization"
 
 func main() {
-	var p organization.Identifiable = organization.Person{}
+	p := organization.Person{ FirstName: "Kevin", LastName: "Gurton"}
+	
 	println(p.ID())
 }
