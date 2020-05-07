@@ -2,7 +2,6 @@ package organization
 
 import (
 	"errors"
-	"fmt"
 )
 
 type Identifiable interface {
@@ -10,20 +9,17 @@ type Identifiable interface {
 }
 
 type Person struct {
-	firstName     string
-	lastName      string
+	Name
 	twitterHandle TwitterHandle
 }
 
 func NewPerson(firstName, lastName string) Person {
 	return Person{
-		firstName: firstName,
-		lastName:  lastName,
+		Name: Name{
+			first: firstName,
+			last:  lastName,
+		},
 	}
-}
-
-func (person *Person) FullName() string {
-	return fmt.Sprintf("%s %s", person.firstName, person.lastName)
 }
 
 func (person *Person) ID() string {
