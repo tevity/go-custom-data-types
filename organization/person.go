@@ -11,19 +11,17 @@ type Identifiable interface {
 type Person struct {
 	Name
 	twitterHandle TwitterHandle
+	Identifiable
 }
 
-func NewPerson(firstName, lastName string) Person {
+func NewPerson(firstName, lastName string, identifiable Identifiable) Person {
 	return Person{
 		Name: Name{
 			first: firstName,
 			last:  lastName,
 		},
+		Identifiable: identifiable,
 	}
-}
-
-func (person *Person) ID() string {
-	return "1234"
 }
 
 func (person *Person) SetTwitterHandle(handle TwitterHandle) error {

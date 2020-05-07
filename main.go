@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	p := organization.NewPerson("Kevin", "Gurton")
+	p := organization.NewPerson("Kevin", "Gurton", organization.NewSocialSecurityNumber("12345"))
 	println(p.FullName())
 
 	err := p.SetTwitterHandle("@whatever")
@@ -15,6 +15,7 @@ func main() {
 		fmt.Printf("An error occurred setting Twitter handle: %s\n", err.Error())
 	}
 
+	println(p.ID())
 	println(p.TwitterHandle())
 	println(p.TwitterHandle().RedirectUrl())
 }
