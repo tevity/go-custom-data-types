@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type TwitterHandle = string
+type TwitterHandle string
 
 type Identifiable interface {
 	ID() string
@@ -34,7 +34,7 @@ func (person *Person) ID() string {
 }
 
 func (person *Person) SetTwitterHandle(handle TwitterHandle) error {
-	if len(handle) > 0 && !strings.HasPrefix(handle, "@") {
+	if len(handle) > 0 && !strings.HasPrefix(string(handle), "@") {
 		return errors.New("Twitter handle must start with @")
 	}
 
