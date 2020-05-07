@@ -1,5 +1,7 @@
 package organization
 
+import "fmt"
+
 type Identifiable interface {
 	ID() string
 }
@@ -14,6 +16,10 @@ func NewPerson(firstName, lastName string) Person {
 		firstName: firstName,
 		lastName: lastName,
 	}
+}
+
+func (person Person) FullName() string {
+	return fmt.Sprintf("%s %s", person.firstName, person.lastName)
 }
 
 func (person Person) ID() string {
