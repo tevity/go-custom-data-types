@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	p := organization.NewPerson("Kevin", "Gurton", organization.NewEuropeanUnionIdentifier("12345", "UK"))
+	p := organization.NewPerson("Kevin", "Gurton", organization.NewEuropeanUnionIdentifier(12345, "UK"))
 	println(p.FullName())
 
 	err := p.SetTwitterHandle("@whatever")
