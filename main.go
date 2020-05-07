@@ -15,4 +15,5 @@ func main() {
 		fmt.Printf("An error occurred setting Twitter handle: %s\n", err.Error())
 	}
 
+	println(p.TwitterHandle())
 }

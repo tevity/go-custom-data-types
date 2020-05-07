@@ -23,19 +23,23 @@ func NewPerson(firstName, lastName string) Person {
 	}
 }
 
-func (person Person) FullName() string {
+func (person *Person) FullName() string {
 	return fmt.Sprintf("%s %s", person.firstName, person.lastName)
 }
 
-func (person Person) ID() string {
+func (person *Person) ID() string {
 	return "1234"
 }
 
-func (person Person) SetTwitterHandle(handle string) error {
+func (person *Person) SetTwitterHandle(handle string) error {
 	if len(handle) > 0 && !strings.HasPrefix(handle, "@") {
 		return errors.New("Twitter handle must start with @")
 	}
 
 	person.twitterHandle = handle
 	return nil
+}
+
+func (person *Person) TwitterHandle() string {
+	return person.twitterHandle
 }
