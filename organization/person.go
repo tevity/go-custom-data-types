@@ -8,19 +8,24 @@ type Identifiable interface {
 	ID() string
 }
 
+type Citizen interface {
+	Identifiable
+	Country() string
+}
+
 type Person struct {
 	Name
 	twitterHandle TwitterHandle
-	Identifiable
+	Citizen
 }
 
-func NewPerson(firstName, lastName string, identifiable Identifiable) Person {
+func NewPerson(firstName, lastName string, citizen Citizen) Person {
 	return Person{
 		Name: Name{
 			first: firstName,
 			last:  lastName,
 		},
-		Identifiable: identifiable,
+		Citizen: citizen,
 	}
 }
 
