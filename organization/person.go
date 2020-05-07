@@ -8,6 +8,10 @@ import (
 
 type TwitterHandle string
 
+func (handle TwitterHandle) Valid() bool {
+	return strings.HasPrefix(string(handle), "@")
+}
+
 type Identifiable interface {
 	ID() string
 }
@@ -34,7 +38,7 @@ func (person *Person) ID() string {
 }
 
 func (person *Person) SetTwitterHandle(handle TwitterHandle) error {
-	if len(handle) > 0 && !strings.HasPrefix(string(handle), "@") {
+	if len(handle) > 0 && !handle.Valid() {
 		return errors.New("Twitter handle must start with @")
 	}
 
